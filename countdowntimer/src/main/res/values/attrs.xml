@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CountdownTimer">
+        <attr name="progress" format="integer"/>
+        <attr name="duration_millis" format="integer"/>
+        <attr name="frequence_millis" format="integer"/>
+        <attr name="line_width_px" format="integer"/>
+        <attr name="autostart" format="boolean"/>
+        <attr name="debug_CountdownTimer" format="boolean"/>
+    </declare-styleable>
+</resources>

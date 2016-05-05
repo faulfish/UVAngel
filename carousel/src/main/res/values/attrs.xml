@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CarouselView">
+        <attr name="alpha_interval" format="float"/>
+        <attr name="size_interval" format="float"/>
+        <attr name="height_interval" format="float"/>
+        <attr name="radius" format="float"/>
+        <attr name="top_padding" format="integer"/>
+        <attr name="item_extra_width" format="integer"/>
+        <attr name="swipe_min_distance" format="integer"/>
+        <attr name="debug_CarouselView" format="boolean"/>
+        <attr name="auto_ScrollToCenter_CarouselView" format="boolean"/>
+    </declare-styleable>
+</resources>
