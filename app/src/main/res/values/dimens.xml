@@ -1,5 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="widget_margin">8dp</dimen>
+    <color name="color_uv_1_2">#ff46b7c7</color>
+    <color name="color_uv_3_4_5">#ff9ed982</color>
+    <color name="color_uv_6_7">#ffffbc94</color>
+    <color name="color_uv_8_9_10">#fff1799e</color>
+    <color name="color_uv_11">#ffc462d2</color>
+
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ChartView">
+        <attr name="mMinValue" format="float"/>
+        <attr name="mMaxValue" format="float"/>
+        <attr name="mYAxisWidth" format="float"/>
+        <attr name="mXAxisHeight" format="float"/>
+        <attr name="mPointRadius" format="float"/>
+        <attr name="mLogColor" format="integer"/>
+        <attr name="mYAxisColor" format="integer"/>
+        <attr name="mXAxisColor" format="integer"/>
+        <attr name="mLogFile" format="string"/>
+        <attr name="debug_ChartView" format="boolean"/>
+    </declare-styleable>
+</resources>

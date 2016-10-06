@@ -6,6 +6,9 @@
         <attr name="height_interval" format="float"/>
         <attr name="radius" format="float"/>
         <attr name="top_padding" format="integer"/>
+        <attr name="auto_group_button" format="boolean"/>
+        <attr name="auto_padding" format="boolean"/>
+        <attr name="auto_fit_parent_extra_width" format="boolean"/>
         <attr name="item_extra_width" format="integer"/>
         <attr name="swipe_min_distance" format="integer"/>
         <attr name="debug_CarouselView" format="boolean"/>

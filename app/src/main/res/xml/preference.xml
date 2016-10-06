@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--<PreferenceCategory-->
+    <!--android:title="@string/uv_general_title">-->
+
+    <!--<SwitchPreference-->
+        <!--android:key="checkbox_preference_temperature"-->
+        <!--android:title="@string/uv_temperature_title"-->
+        <!--android:summary="" />-->
+
+<!--</PreferenceCategory>-->
+
+<PreferenceCategory
+    android:title="@string/uv_notification_title">
+
+    <CheckBoxPreference
+        android:key="checkbox_preference_notification"
+        android:title="@string/uv_notification_title"
+        android:summary="@string/uv_notification_text" />
+
+    <CheckBoxPreference
+        android:key="checkbox_preference_sound"
+        android:title="@string/uv_sound_title"
+        android:summary="@string/uv_sound_text" />
+
+    <CheckBoxPreference
+        android:key="checkbox_preference_vibrate"
+        android:title="@string/uv_vibration_title"
+        android:summary="" />
+
+</PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,369 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="mobi.qiss.uvangel.info$PlaceholderFragment">
+
+
+    <View
+        android:id="@+id/indexbar"
+        android:layout_width="360dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/icon_index_bar_0"
+        android:gravity="center" />
+
+    <RelativeLayout
+        android:id="@+id/introlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/uvindextext"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="95dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="UV INDEX"
+            android:textColor="#ff3fa4b0"
+            android:textSize="39sp" />
+
+        <TextView
+            android:id="@+id/uvindextextintro"
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:layout_below="@+id/uvindextext"
+            android:layout_marginEnd="33dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="7dp"
+            android:gravity="left"
+            android:includeFontPadding="false"
+            android:text="@string/uv_intro"
+            android:textColor="#ff717070"
+            android:textStyle="normal"
+            android:lineSpacingExtra="2dp"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/uvindexdescrption0"
+            android:layout_width="235dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/uvindextextintro"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="#ffababab"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="71dp"
+                android:layout_height="21dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textColor="#ffffffff"
+                android:textSize="18sp"
+                android:text="UV Index" />
+
+            <TextView
+                android:layout_marginStart="116dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="111dp"
+                android:layout_height="21dp"
+                android:gravity="left"
+                android:includeFontPadding="false"
+                android:textColor="#ffffffff"
+                android:textSize="18sp"
+                android:text="@string/uv_category" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/uvindexdescrption1"
+            android:layout_width="235dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/uvindexdescrption0"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:background="#ff46b7c7"
+            android:gravity="center">
+
+        <TextView
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_alignParentStart="true"
+            android:layout_width="71dp"
+            android:layout_height="21dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="#ff3e3a39"
+            android:textSize="18sp"
+            android:text="1 - 2" />
+
+        <TextView
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="2dp"
+            android:layout_alignParentStart="true"
+            android:layout_width="111dp"
+            android:layout_height="21dp"
+            android:gravity="left"
+            android:includeFontPadding="false"
+            android:textColor="#ff3e3a39"
+            android:textSize="18sp"
+            android:text="@string/uv_prompt_1_2" />
+
+    </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/uvindexdescrption2"
+            android:layout_width="235dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/uvindexdescrption1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:background="#ff9ed982"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="71dp"
+                android:layout_height="21dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="3 - 5" />
+
+            <TextView
+                android:layout_marginStart="116dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="111dp"
+                android:layout_height="21dp"
+                android:gravity="left"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="@string/uv_prompt_3_4_5" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/uvindexdescrption3"
+            android:layout_width="235dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/uvindexdescrption2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:background="#ffffbc94"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="71dp"
+                android:layout_height="21dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="6 - 7" />
+
+            <TextView
+                android:layout_marginStart="116dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="111dp"
+                android:layout_height="21dp"
+                android:gravity="left"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="@string/uv_prompt_6_7" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/uvindexdescrption4"
+            android:layout_width="235dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/uvindexdescrption3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:background="#fff1799e"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="71dp"
+                android:layout_height="21dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="8 - 10" />
+
+            <TextView
+                android:layout_marginStart="116dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="111dp"
+                android:layout_height="21dp"
+                android:gravity="left"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="@string/uv_prompt_8_9_10" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/uvindexdescrption5"
+            android:layout_width="235dp"
+            android:layout_height="24dp"
+            android:layout_below="@+id/uvindexdescrption4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:background="#ffc462d2"
+            android:gravity="center">
+
+            <TextView
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="71dp"
+                android:layout_height="21dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="11+" />
+
+            <TextView
+                android:layout_marginStart="116dp"
+                android:layout_marginTop="2dp"
+                android:layout_alignParentStart="true"
+                android:layout_width="111dp"
+                android:layout_height="21dp"
+                android:gravity="left"
+                android:includeFontPadding="false"
+                android:textColor="#ff3e3a39"
+                android:textSize="18sp"
+                android:text="@string/uv_prompt_11" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/indexlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <View
+            android:id="@+id/indexnumber"
+            android:layout_width="360dp"
+            android:layout_height="84dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="106dp"
+            android:background="@drawable/icon_index_number_1_2"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/indexprompt"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_below="@+id/indexnumber"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="33dp"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="UV VERY HIGH"
+            android:textColor="#ffffffff"
+            android:textSize="45sp" />
+
+        <TextView
+            android:id="@+id/indexpromptdescription"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/indexprompt"
+            android:layout_below="@+id/indexprompt"
+            android:layout_marginTop="2dp"
+            android:gravity="left"
+            android:includeFontPadding="false"
+            android:text="Protection required"
+            android:textColor="#ffffffff"
+            android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/indexpromptdescriptiondetail"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_alignLeft="@+id/indexprompt"
+            android:layout_below="@+id/indexpromptdescription"
+            android:layout_marginEnd="33dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:includeFontPadding="false"
+            android:text="Protection required Protection required Protection required"
+            android:textColor="#ff717070"
+            android:textSize="17sp" />
+
+        <View
+            android:id="@+id/indexrecommend"
+            android:layout_width="360dp"
+            android:layout_height="71dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="48dp"
+            android:background="@drawable/icon_index_1_2"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <mobi.qiss.carousel.CarouselView
+        android:id="@+id/indicatorscrollview"
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:scrollbars="none"
+        custom:alpha_interval="0"
+        custom:auto_ScrollToCenter_CarouselView="true"
+        custom:auto_fit_parent_extra_width="true"
+        custom:auto_group_button="true"
+        custom:auto_padding="false"
+        custom:debug_CarouselView="false"
+        custom:height_interval="0"
+        custom:item_extra_width="0"
+        custom:size_interval="0"
+        custom:swipe_min_distance="5"
+        custom:top_padding="0">
+
+        <LinearLayout
+            android:id="@+id/gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal" />
+
+    </mobi.qiss.carousel.CarouselView>
+
+</RelativeLayout>

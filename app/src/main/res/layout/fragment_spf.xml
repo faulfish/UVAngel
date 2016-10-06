@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="mobi.qiss.uvangel.spf$PlaceholderFragment">
+
+    <View
+        android:id="@+id/spfbg1"
+        android:layout_width="360dp"
+        android:layout_height="237dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#ff54c2c1" />
+
+    <View
+        android:id="@+id/spfbg2"
+        android:layout_width="360dp"
+        android:layout_height="134dp"
+        android:layout_below="@+id/spfbg1"
+        android:background="@drawable/bg_main_screen" />
+
+    <TextView
+        android:id="@+id/spfnumbertitle"
+        android:layout_width="250dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Choose your"
+        android:textAlignment="center"
+        android:textColor="#ffffffff"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/spfnumbertitle2"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/spfnumbertitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="SPF number"
+        android:textAlignment="center"
+        android:textColor="#ffffffff"
+        android:textSize="27sp" />
+
+    <ImageView
+        android:id="@+id/spfnumberbg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spfnumbertitle2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-18dp"
+        android:background="@drawable/icon_sunscreen" />
+
+    <mobi.qiss.carousel.CarouselView
+        android:id="@+id/indicatorscrollview"
+        android:layout_width="match_parent"
+        android:layout_height="117dp"
+        android:layout_alignTop="@+id/spfnumberbg"
+        android:layout_marginTop="135dp"
+        android:scrollbars="none"
+        custom:alpha_interval="0.4"
+        custom:auto_ScrollToCenter_CarouselView="true"
+        custom:debug_CarouselView="false"
+        custom:height_interval="0"
+        custom:item_extra_width="0"
+        custom:radius="50000"
+        custom:size_interval="0.2"
+        custom:swipe_min_distance="5"
+        custom:top_padding="0">
+
+        <LinearLayout
+            android:id="@+id/gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal" />
+
+    </mobi.qiss.carousel.CarouselView>
+
+    <Button
+        android:id="@+id/spfplusbutton"
+        android:layout_width="84dp"
+        android:layout_height="28dp"
+        android:layout_below="@+id/indicatorscrollview"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/button_sunscreen_pa_nor"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:onClick="onPlus"
+        android:text="+"
+        android:textSize="27sp" />
+
+    <Button
+        android:id="@+id/SPFOK"
+        android:layout_width="178dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/spfnumberbg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-9dp"
+        android:background="@drawable/button_blue_ssolid_nor"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:onClick="onSPFOK"
+        android:text="OK"
+        android:textColor="#ffffffff"
+        android:textSize="24sp" />
+
+    <Button
+        android:layout_width="178dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/SPFOK"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:background="@drawable/button_blue_ssolid_nor"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:onClick="onSPFCancel"
+        android:text="Cancel"
+        android:textColor="#ffffffff"
+        android:textSize="24sp" />
+
+</RelativeLayout>

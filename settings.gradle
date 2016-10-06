@@ -1,1 +1,1 @@
-include ':app', ':countdowntimer', ':carousel'
+include ':app', ':countdowntimer', ':carousel', ':chart'

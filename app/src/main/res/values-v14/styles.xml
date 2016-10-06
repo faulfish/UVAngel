@@ -1,0 +1,12 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/UVActionBar</item>
+        <item name="actionBarStyle">@style/UVActionBar</item>
+    </style>
+    <style name="UVActionBar" parent="Theme.AppCompat.Light">
+        <item name="android:background">#ff3fa4b0</item>
+        <item name="icon">@drawable/ic_launcher</item>
+    </style>
+</resources>

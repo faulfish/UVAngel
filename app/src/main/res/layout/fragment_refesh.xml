@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="mobi.qiss.uvangel.Refesh$PlaceholderFragment">
+
+    <ImageView
+        android:id="@+id/wavebg"
+        android:layout_width="248dp"
+        android:layout_height="248dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:background="@drawable/uv_wave1" />
+
+    <ImageView
+        android:id="@+id/lightbg"
+        android:layout_width="360dp"
+        android:layout_height="356dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/light0" />
+
+    <TextView
+        android:id="@+id/refreshtitle1"
+        android:layout_width="100dp"
+        android:layout_height="26dp"
+        android:layout_alignTop="@+id/wavebg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Updating"
+        android:textAlignment="center"
+        android:textColor="#ff5b5758"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/refreshtitle2"
+        android:layout_width="100dp"
+        android:layout_height="26dp"
+        android:layout_below="@+id/refreshtitle1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="UV Index"
+        android:textAlignment="center"
+        android:textColor="#ff5b5758"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/refreshanim"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/refreshtitle2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/refreshtitle3"
+        android:layout_width="247dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/wavebg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="Please hold your device steady"
+        android:textAlignment="center"
+        android:textColor="#ff717071"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/refreshtitle4"
+        android:layout_width="247dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/refreshtitle3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="And have the display face up"
+        android:textAlignment="center"
+        android:textColor="#ff717071"
+        android:textSize="16sp" />
+
+    <Button
+        android:layout_width="178dp"
+        android:layout_height="39dp"
+        android:layout_below="@+id/refreshtitle4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/button_blue_ssolid_nor"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:onClick="onREFRESHCancel"
+        android:text="Cancel"
+        android:textColor="#ffffffff"
+        android:textSize="24sp" />
+</RelativeLayout>

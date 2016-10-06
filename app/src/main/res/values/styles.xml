@@ -2,7 +2,11 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/UVActionBar</item>
+        <item name="actionBarStyle">@style/UVActionBar</item>
     </style>
-
+    <style name="UVActionBar" parent="Theme.AppCompat.Light">
+        <item name="android:background">#ff3fa4b0</item>
+        <item name="icon">@drawable/button_app_icon</item>
+    </style>
 </resources>

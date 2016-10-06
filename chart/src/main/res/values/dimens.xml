@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <color name="color_uv_1_2_chart">#ff46b7c7</color>
+    <color name="color_uv_3_4_5_chart">#ff9ed982</color>
+    <color name="color_uv_6_7_chart">#ffffbc94</color>
+    <color name="color_uv_8_9_10_chart">#fff1799e</color>
+    <color name="color_uv_11_chart">#ffc462d2</color>
+    <color name="color_gray_chart">#ffe5e5e5</color>
+    <color name="color_title_chart">#ff3fa4b0</color>
+    <color name="color_hour_chart">#ff595757</color>
+
+</resources>

@@ -2,12 +2,15 @@ package mobi.qiss.carousel;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 /**
@@ -31,17 +35,24 @@ public class CarouselView extends HorizontalScrollView {
     private double alphaInterval = ALPHA_DEFAULT_INTERVAL;
     private static final double HEIGHT_DEFAULT_INTERVAL = 0;
     private double heightInterval = HEIGHT_DEFAULT_INTERVAL;
-    private static final double RADIUS_DEFAULT_INTERVAL = 10000;
-    private double radius = RADIUS_DEFAULT_INTERVAL;
+    private static final double RADIUS_DEFAULT_MAX_INTERVAL = 10000;
+    private double radius = RADIUS_DEFAULT_MAX_INTERVAL;
     private static final int TOP_DEFAULT_PADDING = 0;
     private int topPadding = TOP_DEFAULT_PADDING;
+    private boolean AUTO_DEFAULT_PADDING = true;
+    private boolean mAutoPadding = AUTO_DEFAULT_PADDING;
+    private boolean AUTO_FIT_DEFAULT_WIDTH_EXTRA = false;
+    private boolean mAutoFixWidthExtra = AUTO_FIT_DEFAULT_WIDTH_EXTRA;
     private static final int ITEM_WIDTH_DEFAULT_EXTRA = 0;
-    private int itemWidthExtra = ITEM_WIDTH_DEFAULT_EXTRA;
+    private int mItemWidthExtra = ITEM_WIDTH_DEFAULT_EXTRA;
     private static final boolean AUTO_SCROLL_TO_CENTER_DEFAULT = true;
-    private boolean auto_ScrollToCenter_CarouselView = AUTO_SCROLL_TO_CENTER_DEFAULT;
+    private boolean mAuto_ScrollToCenter_CarouselView = AUTO_SCROLL_TO_CENTER_DEFAULT;
+    private static final boolean AUTO_GROUP_BUTTON_DEFAULT = false;
+    private boolean mAutoGroupButton = AUTO_GROUP_BUTTON_DEFAULT;
     private static final boolean DEBUG_DEFAULT = false;
     private boolean DEBUG = DEBUG_DEFAULT;
-    private int mOffset = 0;
+    protected int mOffset = 0;
+    private int mViewMidth = 0;
 
     public interface Listener {
         void onItemSelectionChanged(CarouselView view, int pos);
@@ -58,6 +69,7 @@ public class CarouselView extends HorizontalScrollView {
     private int mItemHeight;
     private int mItemSelection;
     private Drawable[] mItems;
+    private Drawable[] mItemSelects;
 
     public CarouselView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -67,14 +79,22 @@ public class CarouselView extends HorizontalScrollView {
         alphaInterval = attributes.getFloat(R.styleable.CarouselView_alpha_interval, (float) ALPHA_DEFAULT_INTERVAL);
         sizeInterval = attributes.getFloat(R.styleable.CarouselView_size_interval, (float) SIZE_DEFAULT_INTERVAL);
         heightInterval = attributes.getFloat(R.styleable.CarouselView_height_interval, (float) HEIGHT_DEFAULT_INTERVAL);
-        radius = attributes.getFloat(R.styleable.CarouselView_radius, (float) RADIUS_DEFAULT_INTERVAL);
-        itemWidthExtra = attributes.getInt(R.styleable.CarouselView_item_extra_width, ITEM_WIDTH_DEFAULT_EXTRA);
+        radius = attributes.getFloat(R.styleable.CarouselView_radius, (float) RADIUS_DEFAULT_MAX_INTERVAL);
+        mItemWidthExtra = attributes.getInt(R.styleable.CarouselView_item_extra_width, ITEM_WIDTH_DEFAULT_EXTRA);
         swipMinDistance = attributes.getInt(R.styleable.CarouselView_swipe_min_distance, SWIPE_MIN_DISTANCE);
         topPadding = attributes.getInt(R.styleable.CarouselView_top_padding, TOP_DEFAULT_PADDING);
-        auto_ScrollToCenter_CarouselView = attributes.getBoolean(R.styleable.CarouselView_auto_ScrollToCenter_CarouselView, AUTO_SCROLL_TO_CENTER_DEFAULT);
+        mAutoPadding = attributes.getBoolean(R.styleable.CarouselView_auto_padding, AUTO_DEFAULT_PADDING);
+        mAutoGroupButton = attributes.getBoolean(R.styleable.CarouselView_auto_group_button, AUTO_GROUP_BUTTON_DEFAULT);
+        mAutoFixWidthExtra = attributes.getBoolean(R.styleable.CarouselView_auto_fit_parent_extra_width, AUTO_FIT_DEFAULT_WIDTH_EXTRA);
+        mAuto_ScrollToCenter_CarouselView = attributes.getBoolean(R.styleable.CarouselView_auto_ScrollToCenter_CarouselView, AUTO_SCROLL_TO_CENTER_DEFAULT);
         DEBUG = attributes.getBoolean(R.styleable.CarouselView_debug_CarouselView, DEBUG_DEFAULT);
 
         attributes.recycle();
+    }
+
+    public void init2(Drawable[] drawables, Drawable[] drawableSelects) {
+        init(drawables);
+        mItemSelects = drawableSelects;
     }
 
     public void init(Drawable[] drawables) {
@@ -95,12 +115,29 @@ public class CarouselView extends HorizontalScrollView {
                     if (mListener != null) {
                         int pos = mContainer.indexOfChild(v);
                         if (pos >= 0) {
-                            mListener.onItemClicked(CarouselView.this, pos);
+
+                            if (mAutoGroupButton == true) {
+                                int index = 0;
+                                for (Drawable itemSelect : mItems) {
+                                    ImageView imageView = (ImageView) mContainer.getChildAt(index);
+                                    imageView.setImageDrawable(pos == index ? mItemSelects[index] : mItems[index]);
+                                    index++;
+                                }
+                            }
+
+                            if (mListener != null) {
+                                mListener.onItemClicked(CarouselView.this, pos);
+                            }
                         }
                     }
                 }
             });
             mContainer.addView(view);
+
+            if (mAutoGroupButton == true && mItemSelects != null) {
+                int pos = mContainer.indexOfChild(view);
+                view.setImageDrawable(pos == 0 ? mItemSelects[0] : item);
+            }
             mItemWidthHint = Math.max(mItemWidthHint, item.getIntrinsicWidth());
             mItemHeightHint = Math.max(mItemHeightHint, item.getIntrinsicHeight());
         }
@@ -128,11 +165,46 @@ public class CarouselView extends HorizontalScrollView {
 //                return false;
             }
         });
+
+        if (mContainer != null && mViewMidth != 0) {
+
+            int autoFitWidthExtra = (mViewMidth / mContainer.getChildCount());
+            int intervalW = mItemWidthExtra;
+            mItemWidth = mItemWidthHint + intervalW;
+            if (mAutoFixWidthExtra == true)
+                mItemWidth = autoFitWidthExtra;
+
+            for (int i = 0; i < mContainer.getChildCount(); i++) {
+                ImageView view = (ImageView) mContainer.getChildAt(i);
+                LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) view.getLayoutParams();
+                lp.width = mItemWidth;
+                lp.height = mItemHeight;
+                //view.setLayoutParams(lp);//Not necessary
+            }
+
+            if (mAutoPadding == true) {
+                int padding = (mViewMidth - mItemWidth) / 2;
+                mContainer.setPadding(padding, topPadding, padding, 0);//put the center
+            }
+
+            if (mItemSelection >= 0) {
+                post(new Runnable() {
+                    @Override
+                    public void run() {
+                        scrollTo(mItemWidth * mItemSelection, 0);
+                    }
+                });
+            }
+
+            updateItems();
+        }
     }
 
     private void updateItems() {
 
         double currentCenterPos = ((float) mOffset / (float) mItemWidth);
+        if (mAutoPadding == false)
+            currentCenterPos = mContainer.getChildCount() / 2;
         Matrix matrix = new Matrix();
         for (int i = 0; i < mContainer.getChildCount(); i++) {
             ImageView view = (ImageView) mContainer.getChildAt(i);
@@ -143,9 +215,10 @@ public class CarouselView extends HorizontalScrollView {
             matrix.set(oldMatrix);
             RectF drawableRect = new RectF(0, 0, mItemWidth, mItemHeight);
 
-            double angle = Math.atan((lp.width*(Math.abs((float) i - currentCenterPos)/radius)));
-            float deltaHeight = (float)(topPadding - radius * (1-Math.cos(angle)));
-            deltaHeight = (float) (deltaHeight + ((1.0 - sizeScale) / 2.0) * lp.height);//vertical center
+            double angle = Math.atan((lp.width * (Math.abs((float) i - currentCenterPos) / radius)));
+            if (radius >= RADIUS_DEFAULT_MAX_INTERVAL) angle = 0;
+            float deltaHeight = (float) (topPadding - radius * (1 - Math.cos(angle)));
+            deltaHeight = (float) (deltaHeight + ((1.0 - sizeScale) / 2.0) * mItemHeightHint);//vertical center
             deltaHeight -= (float) (Math.abs((float) i - currentCenterPos) * heightInterval);
 
             float deltaWidth = (float) ((mItemWidth - (lp.width * sizeScale)) / 2.0);//horizontal center
@@ -163,11 +236,18 @@ public class CarouselView extends HorizontalScrollView {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
+        mViewMidth = w;
+
         final int topPadding = 0;//getResources().getDimensionPixelOffset(R.dimen.widget_gallery_top_padding);
-        int intervalW = itemWidthExtra;
 
         mItemHeight = h;
-        mItemWidth = mItemWidthHint + intervalW;
+
+        int autoFitWidthExtra = (mContainer != null && mContainer.getChildCount() > 0) ? (mViewMidth / mContainer.getChildCount()) : 0;
+        int intervalW = mItemWidthExtra;
+        if (mAutoFixWidthExtra == true)
+            mItemWidth = autoFitWidthExtra;
+        else
+            mItemWidth = mItemWidthHint + intervalW;
 
         if (mContainer != null) {
             for (int i = 0; i < mContainer.getChildCount(); i++) {
@@ -175,11 +255,11 @@ public class CarouselView extends HorizontalScrollView {
                 LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) view.getLayoutParams();
                 lp.width = mItemWidth;
                 lp.height = mItemHeight;
-                view.setLayoutParams(lp);
+                //view.setLayoutParams(lp);//Not necessary
             }
 
             int padding = (w - mItemWidth) / 2;
-            mContainer.setPadding(padding, topPadding, padding, 0);
+            mContainer.setPadding(padding, topPadding, padding, 0);//put the center
 
             if (mItemSelection >= 0) {
                 post(new Runnable() {
@@ -212,7 +292,7 @@ public class CarouselView extends HorizontalScrollView {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (mGestureDetector.onTouchEvent(ev)) {
+        if (mGestureDetector != null && mGestureDetector.onTouchEvent(ev)) {
             return true;
         } else if (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_CANCEL) {
             super.dispatchTouchEvent(ev);
@@ -235,7 +315,7 @@ public class CarouselView extends HorizontalScrollView {
     }
 
     private boolean snapItemSelection(final int pos) {
-        if (mItemWidth > 0 && pos >= 0 && pos < mItems.length && auto_ScrollToCenter_CarouselView) {
+        if (mItemWidth > 0 && pos >= 0 && pos < mItems.length && mAuto_ScrollToCenter_CarouselView) {
             smoothScrollTo(pos * mItemWidth, 0);
             return true;
         }
@@ -243,13 +323,26 @@ public class CarouselView extends HorizontalScrollView {
     }
 
     public void setItemSelection(int pos) {
-        if (pos >= 0 && pos < mItems.length && pos != mItemSelection) {
+        if (pos >= 0 && mItems!= null && pos < mItems.length && pos != mItemSelection) {
             mItemSelection = pos;
             if (mItemWidth > 0) {
-                scrollTo(pos * mItemWidth, 0);
+                postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        smoothScrollTo(mItemWidth * mItemSelection, 0);
+                    }
+                }, 500);
             }
             if (mListener != null) {
                 mListener.onItemSelectionChanged(this, pos);
+            }
+            if (mAutoGroupButton == true) {
+                int index = 0;
+                for (Drawable itemSelect : mItems) {
+                    ImageView imageView = (ImageView) mContainer.getChildAt(index);
+                    imageView.setImageDrawable(pos == index ? mItemSelects[index] : mItems[index]);
+                    index++;
+                }
             }
         }
     }
@@ -269,7 +362,7 @@ public class CarouselView extends HorizontalScrollView {
         canvas.drawText(strDebug, 20 + mOffset, 20, mPaint);
 
         //For DEBUG
-        for (int i = 0; i < mContainer.getChildCount(); i++) {
+        for (int i = 0; mContainer != null && i < mContainer.getChildCount(); i++) {
             ImageView view = (ImageView) mContainer.getChildAt(i);
 
             LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) view.getLayoutParams();

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialKeyguardLayout="@layout/uvangel_4_1__widget"
+    android:initialLayout="@layout/uvangel_4_1__widget"
+    android:minHeight="40dp"
+    android:minWidth="250dp"
+    android:previewImage="@drawable/appwidget_preview_4x1"
+    android:updatePeriodMillis="1000"
+    android:widgetCategory="home_screen|keyguard"></appwidget-provider>
+
+<!--android:configure="mobi.qiss.uvangel.UVAngel_4_1_WidgetConfigureActivity"-->

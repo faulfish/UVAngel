@@ -2,7 +2,52 @@
 <resources>
 
     <string name="app_name">UVAngel</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="uv_stop_button">STOP</string>
+    <string name="uv_start_button">START</string>
     <string name="action_settings">Settings</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="title_activity_refesh">UVAngel</string>
+    <string name="title_activity_history">History</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_spf">UVAngel</string>
+    <string name="title_activity_info">UVAngel</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="configure">Configure</string>
+    <string name="add_widget">Add widget</string>
+    <string name="uv_category">UV category</string>
+    <string name="uv_prompt_1_2">UV Low</string>
+    <string name="uv_prompt_3_4_5">UV Moderate</string>
+    <string name="uv_prompt_6_7">UV High</string>
+    <string name="uv_prompt_8_9_10">UV Very High</string>
+    <string name="uv_prompt_11">UV Extreme</string>
+    <string name="uv_prompt_description_1_2">No protection required</string>
+    <string name="uv_prompt_description_3_4_5">Protection required</string>
+    <string name="uv_prompt_description_6_7">Protection required</string>
+    <string name="uv_prompt_description_8_9_10">Extreme protection</string>
+    <string name="uv_prompt_description_11">Extreme protection</string>
+    <string name="uv_prompt_description_detail_1_2">Wear sunglasses on bright days; use sunscreen if there is snow on the ground, which reflects UV radiation, or if you have particularly fair skin.</string>
+    <string name="uv_prompt_description_detail_3_4_5">Take precautions, such as covering up, if you will be outside. Stay in shade near midday when the sun is strongest.</string>
+    <string name="uv_prompt_description_detail_6_7">Wear sunglasses and use SPF 30+ sunscreen, cover the body with sun protective clothing and a wide-brim hat, and reduce time in the sun within three hours of solar noon.</string>
+    <string name="uv_prompt_description_detail_8_9_10">Wear SPF 30+ sunscreen, a shirt, sunglasses, and a hat. Do not stay in the sun for too long.</string>
+    <string name="uv_prompt_description_detail_11">Take all precautions: Wear sunglasses and use SPF 30+ sunscreen, cover the body with a long-sleeve shirt and trousers, wear a very broad hat, and avoid the sun from three hours before until three hours after solar noon.</string>
+    <string name="uv_prompt_recommend1_1_2">Use protection if particular fair skin.</string>
+    <string name="uv_prompt_recommend1_3_4_5">Stay in shade to avoid midday sun.</string>
+    <string name="uv_prompt_recommend1_6_7">Reduce time in sun from 11 to 13.</string>
+    <string name="uv_prompt_recommend1_8_9_10">Do not stay in the sun for too long.</string>
+    <string name="uv_prompt_recommend1_11">Broad hat. Avoid sun from 9 to 15.</string>
+    <string name="uv_intro">The UVI is a measure of the level of UV radiation. The values of the index range from zero upward - the higher the UVI, the greater the potential for damage to the skin and eye, and the less time it takes for harm to occur. Please follow the recommended protection to protect yourself. The following table shows the mapping of UVI and its category.</string>
+    <string name="uv_default_zero_time" translatable="false">00:00:00</string>
+    <string name="uv_in_the_sun">TIME IN THE SUN</string>
+    <string name="uv_uv" translatable="false">UV</string>
+    <string name="uv_index">INDEX</string>
+    <string name="uv_sound_title">Sound</string>
+    <string name="uv_sound_text"><Default>ringtone</Default></string>
+    <string name="uv_vibration_title">Vibration</string>
+    <string name="uv_general_title">General</string>
+    <string name="uv_notification_title">Notification</string>
+    <string name="uv_notification_text">15 mins before and after countdown</string>
+    <string name="uv_temperature_title">Temperature unit</string>
 
 </resources>

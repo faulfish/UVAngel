@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:background="@color/color_gray_chart"
+    android:orientation="vertical">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#ffffffff"/>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="74dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="06:25 am"
+        android:textColor="#ff595757"
+        android:textSize="15sp"
+        android:typeface="monospace" />
+
+    <TextView
+        android:id="@+id/uv"
+        android:layout_width="140dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/time"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:text="UV 10"
+        android:textAlignment="center"
+        android:textColor="@color/color_uv_8_9_10"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/location2"
+        android:layout_width="140dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="6dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/time"
+        android:gravity="center_horizontal"
+        android:includeFontPadding="false"
+        android:text="Neihu"
+        android:textAlignment="center"
+        android:textColor="#ff595757"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/spf"
+        android:layout_width="140dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/uv"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:text="SPF 15"
+        android:textColor="#ff595757"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/pa"
+        android:layout_width="140dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/uv"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:text="PA ++"
+        android:textColor="#ff595757"
+        android:textSize="12sp" />
+
+</RelativeLayout>
